@@ -17,15 +17,12 @@ export function cleanUpUrlIfConfluence(
 	}
 
 	// Check if the input matches the specified path format
-	//const pathRegex = /\/wiki\/spaces\/(?:~)?(\w+)\/pages\/(\d+)(?:\/(\w*))?/;
+	const pathRegex = /\/wiki\/spaces\/(?:~)?(\w+)\/pages\/(\d+)(?:\/(\w*))?/;
 	const matches = url.pathname.match(pathRegex);
 
 	if (matches) {
 		// Update the pathname to remove the last optional part
-		//url.pathname = `/wiki/spaces/${matches[1]}/pages/${matches[2]}`;
-		//url.pathname = `/display/${matches[1]}/${matches[2]}
-		url.pathname = `/display/${matches[1]}`;
-
+		url.pathname = `/wiki/spaces/${matches[1]}/pages/${matches[2]}`;
 
 		// Return the updated URL
 		return url.href;

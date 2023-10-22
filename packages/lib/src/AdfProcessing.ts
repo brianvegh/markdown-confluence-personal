@@ -679,8 +679,7 @@ function processWikilinkToActualLink(
 					const linkPage = fileToPageIdMap[pagename];
 
 					if (linkPage) {
-						// const confluenceUrl = `${settings.confluenceBaseUrl}/wiki/spaces/${linkPage.spaceKey}/pages/${linkPage.pageId}${wikilinkUrl.hash}`;
-						const confluenceUrl = `${settings.confluenceBaseUrl}/display/${linkPage.spaceKey}/${wikilinkUrl.hash}`
+						const confluenceUrl = `${settings.confluenceBaseUrl}/wiki/spaces/${linkPage.spaceKey}/pages/${linkPage.pageId}${wikilinkUrl.hash}`;
 						node.marks[0].attrs["href"] = confluenceUrl;
 						if (node.text === `${pathName}${wikilinkUrl.hash}`) {
 							node.type = "inlineCard";

@@ -75,13 +75,7 @@ async function createFileStructureInConfluence(
 	parentPageId: string,
 	topPageId: string,
 	createPage: boolean,
-): Promise<{
-	lastUpdatedBy: string;
-	file: { fileName: string; dontChangeParentPageId: boolean; pageTitle: string; frontmatter: { [p: string]: unknown }; absoluteFilePath: string; pageId: string; tags: string[]; spaceKey: string; contents:; pageUrl: string; folderName: string; contentType: PageContentType; blogPostDate: string | undefined };
-	children: Awaited<ConfluenceTreeNode>[];
-	version: number;
-	existingPageData: { adfContent: | undefined; pageTitle: string; ancestors: { id: string }[]; contentType: string }
-}> {
+): Promise<ConfluenceTreeNode> {
 	if (!node.file) {
 		throw new Error("Missing file on node");
 	}
@@ -139,13 +133,7 @@ async function createFileStructureInConfluence(
 
 	const childDetails = await Promise.all(childDetailsTasks);
 
-	// const pageUrl = `${settings.confluenceBaseUrl}/wiki/spaces/${spaceKey}/pages/${file.pageId}/`;
-	//const pageUrl = `${settings.confluenceBaseUrl}/rest/api/content/${file.pageId}/`;
-	const pageUrl = `${settings.confluenceBaseUrl}/rest/api/content/${file.pageId}/`;
-	// const pageUrl = `${settings.confluenceBaseUrl}/wiki/spaces/${spaceKey}/pages/${file.pageId}/`;
-	// const confluenceUrl = `${settings.confluenceBaseUrl}/display/${linkPage.spaceKey}/${wikilinkUrl.hash}`
-
-
+	const pageUrl = `${settings.confluenceBaseUrl}/wiki/spaces/${spaceKey}/pages/${file.pageId}/`;
 	return {
 		file: { ...file, pageUrl },
 		version,

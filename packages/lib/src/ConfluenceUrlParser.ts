@@ -18,6 +18,7 @@ export function cleanUpUrlIfConfluence(
 
 	// Check if the input matches the specified path format
 	//const pathRegex = /\/wiki\/spaces\/(?:~)?(\w+)\/pages\/(\d+)(?:\/(\w*))?/;
+	const pathRegex = /\/display\/(\w+)/;
 	const matches = url.pathname.match(pathRegex);
 
 	if (matches) {

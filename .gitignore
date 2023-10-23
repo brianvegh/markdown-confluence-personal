@@ -18,3 +18,6 @@ data.json
 .DS_Store
 
 dist/
+packages/lib/src/ConfluenceUrlParser.ts.org
+packages/lib/src/AdfProcessing.ts.org
+packages/cli/src/index.ts.org
